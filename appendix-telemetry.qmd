@@ -1,0 +1,3 @@
+# Extended System Telemetry Logs {#sec-appendix-logs}
+
+This section houses our compilation dataset matrices.

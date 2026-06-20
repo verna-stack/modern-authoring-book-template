@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: write
+  contents: write # Restricted entirely to committing compiled HTML to gh-pages
 
 jobs:
   build-deploy:
@@ -21,7 +21,7 @@ jobs:
           cache: 'pip'
 
       - name: Install Python Dependencies
-        run: |
+        run:
           pip install --upgrade pip
           pip install -r requirements.txt
 
@@ -36,3 +36,4 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BOOK_FUNNEL_METRIC_KEY: ${{ secrets.REAL_PRODUCTION_API_KEY }}

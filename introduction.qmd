@@ -1,0 +1,3 @@
+# Operational Philosophy {#sec-philosophy-root}
+
+This chapter introduces our core design principles.
