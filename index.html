@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Architectural Deep Dives</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Architectural Deep Dives</span></span></a>
   </div>
 </li>
     </ul>
@@ -125,7 +154,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#sec-architecture-root" id="toc-sec-architecture-root" class="nav-link active" data-scroll-target="#sec-architecture-root"><span class="header-section-number">1</span> Architectural Deep Dives</a>
+  <ul class="collapse">
+  <li><a href="#sec-telemetry-metrics" id="toc-sec-telemetry-metrics" class="nav-link" data-scroll-target="#sec-telemetry-metrics"><span class="header-section-number">1.1</span> Real-Time System Telemetry</a></li>
+  </ul></li>
+  <li><a href="#system-data-coordinates" id="toc-system-data-coordinates" class="nav-link" data-scroll-target="#system-data-coordinates"><span class="header-section-number">2</span> System data coordinates</a></li>
+  <li><a href="#initialize-layout-boundaries" id="toc-initialize-layout-boundaries" class="nav-link" data-scroll-target="#initialize-layout-boundaries"><span class="header-section-number">3</span> Initialize layout boundaries</a></li>
+  <li><a href="#plot-data-curves" id="toc-plot-data-curves" class="nav-link" data-scroll-target="#plot-data-curves"><span class="header-section-number">4</span> Plot data curves</a></li>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link" data-scroll-target="#welcome">Welcome</a>
+  <ul class="collapse">
+  <li><a href="#algorithmic-foundation-nodes" id="toc-algorithmic-foundation-nodes" class="nav-link" data-scroll-target="#algorithmic-foundation-nodes"><span class="header-section-number">4.1</span> Algorithmic Foundation Nodes</a>
+  <ul class="collapse">
+  <li><a href="#pipeline-analytical-inferences" id="toc-pipeline-analytical-inferences" class="nav-link" data-scroll-target="#pipeline-analytical-inferences"><span class="header-section-number">4.1.1</span> Pipeline Analytical Inferences</a></li>
+  </ul></li>
+  <li><a href="#provenance-and-precedent" id="toc-provenance-and-precedent" class="nav-link" data-scroll-target="#provenance-and-precedent"><span class="header-section-number">4.2</span> Provenance and Precedent</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -157,10 +200,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="sec-architecture-root" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Architectural Deep Dives</h1>
+<section id="sec-telemetry-metrics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-telemetry-metrics"><span class="header-section-number">1.1</span> Real-Time System Telemetry</h2>
+<p>Below is a live-rendered visualization tracing our pipeline performance matrix. This vector chart is generated dynamically from mathematical loops during compilation.</p>
+<p>#| label: fig-pipeline-metrics #| fig-cap: “Pipeline Compilation Latency Scaling Curve” #| echo: false import matplotlib.pyplot as plt</p>
+</section>
+</section>
+<section id="system-data-coordinates" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> System data coordinates</h1>
+<p>chapters = [1, 2, 3, 4, 5, 6, 7] latency_ms = [45, 62, 110, 145, 230, 410, 490]</p>
+</section>
+<section id="initialize-layout-boundaries" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Initialize layout boundaries</h1>
+<p>plt.style.use(‘seaborn-v0_8-whitegrid’) fig, ax = plt.subplots(figsize=(6, 3.5), dpi=300)</p>
+</section>
+<section id="plot-data-curves" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Plot data curves</h1>
+<p>ax.plot(chapters, latency_ms, marker=‘o’, color=‘#2b6cb0’, linewidth=2, label=‘Local Compiler’) ax.set_title(‘Pipeline Build Scale Footprint’, fontsize=11, fontweight=‘bold’, pad=10) ax.set_xlabel(‘Book Chapter Progress Node’, fontsize=9) ax.set_ylabel(‘Execution Latency (ms)’, fontsize=9) ax.tick_params(labelsize=8)</p>
+<p>plt.tight_layout() plt.show()</p>
+</section>
 <section id="welcome" class="level1 unnumbered">
 <h1 class="unnumbered">Welcome</h1>
+<section id="algorithmic-foundation-nodes" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="algorithmic-foundation-nodes"><span class="header-section-number">4.1</span> Algorithmic Foundation Nodes</h2>
+<p>The core behavioral model of our automated optimization engine relies on a standard loss evaluation sequence. When computing localized drift dynamically within a sentence, we track the basic variance variable as <span class="math inline">\(J(\theta)\)</span>.</p>
+<p>However, when calculating the complete multi-dimensional error optimization across the entire matrix system, we deploy the full cost optimization formula:</p>
+<p><span class="math display">\[J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2\]</span> ### Matrix Reduction Progression</p>
+<p>We track the step-by-step reduction behavior of our optimization matrices through the following progression:</p>
+<p><span class="math display">\[\begin{align}
+f(x, y) &amp;= (x + y)^2 \\
+        &amp;= x^2 + 2xy + y^2 \\
+        &amp;= \nabla f(x,y)
+\end{align}\]</span></p>
+<section id="pipeline-analytical-inferences" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="pipeline-analytical-inferences"><span class="header-section-number">4.1.1</span> Pipeline Analytical Inferences</h3>
+<p>As we analyze the structural footprint mapping mapped out in <a href="#sec-telemetry-metrics" class="quarto-xref"><span>Section 1.1</span></a>, it becomes clear that computational overhead scales linearly. The concrete system execution data visualized in <span class="quarto-unresolved-ref">?fig-pipeline-metrics</span> proves that locking our local Python virtual interpreter sandbox limits compilation spikes.</p>
+<p>For a complete breakdown of our platform deployment layout, return to the foundational blueprints established in <a href="#sec-architecture-root" class="quarto-xref"><span>Chapter 1</span></a>.</p>
+</section>
+</section>
+<section id="provenance-and-precedent" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="provenance-and-precedent"><span class="header-section-number">4.2</span> Provenance and Precedent</h2>
+<p>The core operational design of our containerized compile pipeline follows the strict industry standards of continuous integration. As explicitly demonstrated in the foundational research on modern software typography <span class="citation" data-cites="stack_2026_automation">[@stack_2026_automation]</span>, moving the build layer completely off local host systems limits deployment exceptions.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
