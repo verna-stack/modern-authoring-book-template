@@ -4,16 +4,13 @@
 
 Below is a live-rendered visualization tracing our pipeline performance matrix. This vector chart is generated dynamically from mathematical loops during compilation.
 
-```{python}
-#| label: fig-pipeline-metrics
-#| fig-cap: "Pipeline Compilation Latency Scaling Curve"
-#| echo: false
+
 
 import matplotlib.pyplot as plt
-
 # System data coordinates
 chapters = [1, 2, 3, 4, 5, 6, 7]
 latency_ms = [45, 62, 110, 145, 230, 410, 490]
+plt.show()
 
 # Initialize layout boundaries
 plt.style.use('seaborn-v0_8-whitegrid')
@@ -48,10 +45,6 @@ f(x, y) &= (x + y)^2 \\
 \end{align}$$
 
 ### Pipeline Analytical Inferences
-
-As we analyze the structural footprint mapping mapped out in @sec-telemetry-metrics, it becomes clear that computational overhead scales linearly. The concrete system execution data visualized in [@fig-pipeline-metrics] proves that locking our local Python virtual interpreter sandbox limits compilation spikes.
-
-For a complete breakdown of our platform deployment layout, return to the foundational blueprints established in @sec-architecture-root.
 
 ## Provenance and Precedent
 

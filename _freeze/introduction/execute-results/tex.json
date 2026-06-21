@@ -1,0 +1,11 @@
+{
+  "hash": "17684d85c7bc5636992f3c2114efe738",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# Introduction {#sec-introduction}\n\n# Operational Philosophy {#sec-philosophy-root}\n\nThis section introduces our core design rules for building an automated, multi-format plaintext book pipeline.\n\n::: {.cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![Pipeline Compilation Latency Scaling Curve](introduction_files/figure-pdf/fig-pipeline-metrics-output-1.pdf){#fig-pipeline-metrics}\n:::\n:::\n\n\nAs we analyze the structural footprint mapping mapped out in @sec-telemetry-metrics, it becomes clear that computational overhead scales linearly. The concrete system execution data visualized in @fig-pipeline-metrics proves that locking our local Python virtual interpreter sandbox limits compilation spikes.\n\nFor a complete breakdown of our platform deployment layout, return to the foundational blueprints established in @sec-architecture-root.\n\n",
+    "supporting": [
+      "introduction_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}
