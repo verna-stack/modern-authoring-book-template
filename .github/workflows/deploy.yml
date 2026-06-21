@@ -31,6 +31,9 @@ jobs:
       - name: Set up Quarto Compiler
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install TinyTeX (for PDF compilation)
+        uses: quarto-dev/quarto-actions/install-tinytex@v2
+
       - name: Render and Publish Web Book
         uses: quarto-dev/quarto-actions/publish@v2
         with:
