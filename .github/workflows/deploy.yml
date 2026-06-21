@@ -28,11 +28,10 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Set up Quarto Compiler
+      - name: Set up Quarto Compiler with TinyTeX
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Install TinyTeX (for PDF compilation)
-        uses: quarto-dev/quarto-actions/install-tinytex@v2
+        with:
+          tinytex: true
 
       - name: Render and Publish Web Book
         uses: quarto-dev/quarto-actions/publish@v2
